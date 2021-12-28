@@ -7,9 +7,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+    private Long id;
 
     private String name;
 
@@ -17,7 +18,10 @@ public class Product {
 
     private double price;
 
+    private double value;
+
     private String unit;
+
 
     public String getUnit() {
         return unit;
@@ -57,5 +61,13 @@ public class Product {
 
     public void setStock(double stock) {
         this.stock = stock;
+    }
+
+    public double getValue() {
+        return getStock()*getPrice();
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }

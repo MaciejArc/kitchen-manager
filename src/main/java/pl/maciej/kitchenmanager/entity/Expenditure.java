@@ -14,7 +14,19 @@ public class Expenditure {
 
     private double quantity;
 
+    private double value;
+
     private LocalDate pickUpDate = LocalDate.now();
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+
 
     public Long getId() {
         return Id;
