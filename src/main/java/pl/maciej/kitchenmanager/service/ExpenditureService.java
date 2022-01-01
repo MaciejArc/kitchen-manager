@@ -7,6 +7,7 @@ import pl.maciej.kitchenmanager.repository.ExpenditureRepository;
 import pl.maciej.kitchenmanager.repository.IncomeRepository;
 import pl.maciej.kitchenmanager.repository.ProductRepository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,10 @@ public class ExpenditureService {
         sumOfQuantityAndValue.add(expenditureQuantity);
         sumOfQuantityAndValue.add(expenditureValue);
         return sumOfQuantityAndValue;
+    }
+
+    public List<Expenditure> ExpenditureToday(){
+        return expenditureRepository.findAllByPickUpDate(LocalDate.now());
     }
 
 }

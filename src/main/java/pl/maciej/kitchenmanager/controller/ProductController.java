@@ -14,25 +14,19 @@ import pl.maciej.kitchenmanager.repository.ProductRepository;
 import pl.maciej.kitchenmanager.service.ExpenditureService;
 import pl.maciej.kitchenmanager.service.IncomeService;
 import pl.maciej.kitchenmanager.service.ProductService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class ProductController {
 
     private final ProductRepository productRepository;
-    private final IncomeRepository incomeRepository;
-    private final ExpenditureRepository expenditureRepository;
 
     private final ProductService productService;
     private final IncomeService incomeService;
     private final ExpenditureService expenditureService;
 
-    public ProductController(ProductRepository productRepository, IncomeRepository incomeRepository, ExpenditureRepository expenditureRepository, ProductService productService, IncomeService incomeService, ExpenditureService expenditureService) {
+    public ProductController(ProductRepository productRepository, ProductService productService, IncomeService incomeService, ExpenditureService expenditureService) {
         this.productRepository = productRepository;
-        this.incomeRepository = incomeRepository;
-        this.expenditureRepository = expenditureRepository;
         this.productService = productService;
         this.incomeService = incomeService;
         this.expenditureService = expenditureService;

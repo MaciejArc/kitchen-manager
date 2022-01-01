@@ -16,7 +16,7 @@
     <p>Produkt:</p>
 
 
-    <form:select path="product" items="${products}"  itemLabel="name"/>
+    <form:select path="product" items="${products}" itemLabel="name"/>
 
     <p>Ilość:</p>
     <form:input path="quantity"/>
@@ -25,6 +25,23 @@
 
 
 </form:form>
+
+<table>
+    <tr>
+        <td>Nazwa</td>
+        <td>Ilość</td>
+
+    </tr>
+<c:forEach items="${expToday}" var="ex">
+    <tr>
+
+        <td>${ex.product.name}</td>
+        <td>${ex.quantity}</td>
+    </tr>
+
+</c:forEach>
+
+</table>
 
 </body>
 </html>
