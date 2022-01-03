@@ -21,6 +21,13 @@
     <p>Ilość:</p>
     <form:input path="quantity"/>
 
+    <p>Przeznaczenie:</p>
+    <form:select path="purpose">
+        <form:option value="S">Stołówka</form:option>
+        <form:option value="P">Przetrzkole</form:option>
+
+    </form:select>
+
     <input type="submit" value="Wyślij">
 
 
@@ -30,6 +37,7 @@
     <tr>
         <td>Nazwa</td>
         <td>Ilość</td>
+        <td>Przeznaczenie</td>
 
     </tr>
 <c:forEach items="${expToday}" var="ex">
@@ -37,6 +45,7 @@
 
         <td>${ex.product.name}</td>
         <td>${ex.quantity}</td>
+        <td>${ex.purpose}</td>
     </tr>
 
 </c:forEach>

@@ -18,6 +18,16 @@ public class Expenditure {
 
     private LocalDate pickUpDate = LocalDate.now();
 
+    private String purpose;
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
     public double getValue() {
         return value;
     }
@@ -25,8 +35,6 @@ public class Expenditure {
     public void setValue(double value) {
         this.value = value;
     }
-
-
 
     public Long getId() {
         return Id;
