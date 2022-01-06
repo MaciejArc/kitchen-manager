@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.maciej.kitchenmanager.entity.Diary;
 import pl.maciej.kitchenmanager.service.DiaryService;
 
@@ -27,7 +28,16 @@ public class DiaryController {
     public String diaryAddPost(Diary diary,Model model){
         String purpose = diary.getPurpose();
         diary.setExpenditureList(diaryService.findExpenditureByDateAndPurpose(purpose));
-        model.addAttribute("diary",diary);
+        diaryService.saveDiary(diary);
+
+        return "redirect:/diary/add";
+    }
+
+    @GetMapping("/diary/show")
+    public String diaryShow(Model model, @RequestParam(value = "number") String number){
+        int diaryNumber = Integer.parseInt(number);
+        model.addAttribute("sumValue",diaryService.sumValue(diaryService.findDiaryByNumber(diaryNumber)));
+        model.addAttribute("diary", diaryService.findDiaryByNumber(diaryNumber));
         return "diary/showDiary";
     }
 }

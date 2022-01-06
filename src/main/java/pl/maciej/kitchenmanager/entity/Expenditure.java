@@ -12,6 +12,8 @@ public class Expenditure {
     @OneToOne
     private Product product;
 
+    private int diaryNumber;
+
     private double quantity;
 
     private double value;
@@ -19,6 +21,14 @@ public class Expenditure {
     private LocalDate pickUpDate = LocalDate.now();
 
     private String purpose;
+
+    public int getDiaryNumber() {
+        return diaryNumber;
+    }
+
+    public void setDiaryNumber(int diaryNumber) {
+        this.diaryNumber = diaryNumber;
+    }
 
     public String getPurpose() {
         return purpose;

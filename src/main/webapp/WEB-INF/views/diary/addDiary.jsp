@@ -21,7 +21,7 @@
     <p>Przeznaczenie:</p>
     <form:select path="purpose">
         <form:option value="S">Stołówka</form:option>
-        <form:option value="P">Przetrzkole</form:option>
+        <form:option value="P">Przedszkole</form:option>
 
     </form:select>
 

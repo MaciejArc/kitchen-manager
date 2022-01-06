@@ -25,4 +25,34 @@ public class DiaryService {
         expenditureList = expenditureRepository.findAllByPickUpDateAndPurpose(LocalDate.now(),purpose);
         return expenditureList;
     }
+    
+    public Diary saveDiary(Diary diary){
+        diaryRepository.save(diary);
+        List<Expenditure> expenditureList = diary.getExpenditureList();
+        for (Expenditure ex :
+                expenditureList) {
+            ex.setDiaryNumber(diary.getNumber());
+            expenditureRepository.save(ex);
+        }
+        return diary;
+    }
+    public Diary findDiaryByNumber(int number){
+        return diaryRepository.findDiaryByNumber(number);
+    }
+
+    public double sumValue(Diary diary){
+
+
+        List<Expenditure> expenditureList = diary.getExpenditureList();
+
+        double value = 0;
+        for (Expenditure ex : expenditureList) {
+
+            value =value+ ex.getValue();
+
+        }
+
+
+        return value;
+    }
 }
