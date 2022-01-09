@@ -22,6 +22,15 @@ public class Product {
 
     private String unit;
 
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getUnit() {
         return unit;
@@ -64,7 +73,7 @@ public class Product {
     }
 
     public double getValue() {
-        return getStock()*getPrice();
+        return getStock() * getPrice();
     }
 
     public void setValue(double value) {

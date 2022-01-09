@@ -22,6 +22,7 @@
 
    <form:select path="product" items="${products}"  itemLabel="name"/>
 
+
     <p>Ilość:</p>
     <form:input path="quantity"/>
 
