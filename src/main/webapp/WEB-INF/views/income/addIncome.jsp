@@ -12,7 +12,7 @@
 </head>
 <body>
 <form:form modelAttribute="income">
-
+<a href="http://localhost:8080/income/selectType">Wstecz</a>
     <p>Produkt:</p>
 <%--    <c:forEach items="${products}" var="product">--%>
 
@@ -20,7 +20,7 @@
 
 <%--    </c:forEach>--%>
 
-   <form:select path="product" items="${products}"  itemLabel="name"/>
+   <form:select path="product" items="${products}"  itemLabel="name" cssStyle="font-size: large"/>
 
 
     <p>Ilość:</p>
@@ -30,6 +30,23 @@
 
 
 </form:form>
+<table>
+    <tr>
+        <td>Nazwa</td>
+        <td>Ilość</td>
 
+
+    </tr>
+    <c:forEach items="${incomeToday}" var="income">
+        <tr>
+
+            <td>${income.product.name}</td>
+            <td>${income.quantity}</td>
+
+        </tr>
+
+    </c:forEach>
+
+</table>
 </body>
 </html>

@@ -4,25 +4,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.maciej.kitchenmanager.entity.Income;
 import pl.maciej.kitchenmanager.entity.Product;
 import pl.maciej.kitchenmanager.repository.IncomeRepository;
 import pl.maciej.kitchenmanager.repository.ProductRepository;
+import pl.maciej.kitchenmanager.service.IncomeService;
+import pl.maciej.kitchenmanager.service.ProductService;
 
 @Controller
 public class IncomeController {
     private final ProductRepository productRepository;
     private final IncomeRepository incomeRepository;
+    private final ProductService productService;
+    private final IncomeService incomeService;
 
-    public IncomeController(ProductRepository productRepository, IncomeRepository incomeRepository) {
+    public IncomeController(ProductRepository productRepository, IncomeRepository incomeRepository, ProductService productService, IncomeService incomeService) {
         this.productRepository = productRepository;
         this.incomeRepository = incomeRepository;
+        this.productService = productService;
+        this.incomeService = incomeService;
     }
 
     @GetMapping("/income/add")
-    public String incomeAdd(Model model){
+    public String incomeAdd(Model model, @RequestParam(value = "type") String type){
         model.addAttribute("income",new Income());
-        model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("products", productService.findByType(type));
+        model.addAttribute("incomeToday", incomeService.incomesToday());
 
         return "income/addIncome";
 
@@ -35,9 +43,15 @@ public class IncomeController {
         product.setStock(product.getStock()+income.getQuantity());
         incomeRepository.save(income);
         productRepository.save(product);
+        String type = income.getProduct().getType();
 
 
-        return "income/addIncome";
+        return "redirect:/income/add?type="+type;
+
+    }
+    @GetMapping("/income/selectType")
+    public String incomeSelectType(){
+        return "income/selectType";
 
     }
 

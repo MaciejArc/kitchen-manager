@@ -26,7 +26,7 @@ public class ProductService {
         return productRepository.findById(id).get();
     }
 
-
+    public List<Product> findByType(String type){return productRepository.findAllByType(type);}
 
 
 }
