@@ -77,4 +77,12 @@ public class Expenditure {
     public void setPickUpDate(LocalDate pickUpDate) {
         this.pickUpDate = pickUpDate;
     }
+
+
+
+    public Expenditure() {
+    }
+    public Expenditure(Product product) {
+        this.product = product;
+    }
 }

@@ -3,6 +3,7 @@ package pl.maciej.kitchenmanager.service;
 import org.springframework.context.annotation.Configuration;
 import pl.maciej.kitchenmanager.entity.Expenditure;
 import pl.maciej.kitchenmanager.entity.Income;
+import pl.maciej.kitchenmanager.entity.Product;
 import pl.maciej.kitchenmanager.repository.ExpenditureRepository;
 import pl.maciej.kitchenmanager.repository.IncomeRepository;
 import pl.maciej.kitchenmanager.repository.ProductRepository;
@@ -24,7 +25,7 @@ public class ExpenditureService {
         this.expenditureRepository = expenditureRepository;
     }
 
-    public List<Expenditure> findAllByProductId(Long id){
+    public List<Expenditure> findAllByProductId(Long id) {
         return expenditureRepository.findAllByProduct_Id(id);
     }
 
@@ -37,14 +38,65 @@ public class ExpenditureService {
             expenditureValue = expenditureValue + expenditure.getValue();
 
         }
-       expenditureValue= Math.round(expenditureValue *100.0)/100.0;
+        expenditureValue = Math.round(expenditureValue * 100.0) / 100.0;
         sumOfQuantityAndValue.add(expenditureQuantity);
         sumOfQuantityAndValue.add(expenditureValue);
         return sumOfQuantityAndValue;
     }
 
-    public List<Expenditure> ExpenditureToday(){
+    public List<Expenditure> ExpenditureToday() {
         return expenditureRepository.findAllByPickUpDate(LocalDate.now());
     }
 
+    public void addExpenditure(Expenditure expenditure, Product product){
+
+        expenditure.setProduct(product);
+        double price = product.getPrice();
+        expenditure.setValue(Math.round(price*expenditure.getQuantity()*100d)/100d);
+        product.setStock(product.getStock()-expenditure.getQuantity());
+
+        expenditureRepository.save(expenditure);
+        productRepository.save(product);
+    }
+public Expenditure getExpenditure(String id){
+    Expenditure expenditure = expenditureRepository.getById(Long.parseLong(id));
+    Expenditure expenditureNew = new Expenditure();
+        expenditureNew.setProduct(expenditure.getProduct());
+        expenditureNew.setValue(expenditure.getValue());
+        expenditureNew.setQuantity(expenditure.getQuantity());
+        expenditureNew.setPurpose(expenditure.getPurpose());
+        expenditureNew.setId(expenditure.getId());
+
+    return expenditureNew;
+
 }
+
+public void editQuantity(Expenditure expenditure,double quantity){
+    Expenditure expenditure1 = expenditureRepository.getById(expenditure.getId());
+    Product product = expenditure1.getProduct();
+    double quantity1 = expenditure1.getQuantity();
+    double v = quantity1 - quantity;
+        if(v<0){
+        product.setStock(product.getStock()-Math.abs(v));
+    }else {
+        product.setStock(product.getStock()+Math.abs(v));
+    }
+        productRepository.save(product);
+
+}
+public void editExpenditure(Expenditure expenditure,String purpose,double quantity){
+        Expenditure expenditure1 = expenditureRepository.getById(expenditure.getId());
+
+
+
+
+
+
+       expenditureRepository.save(expenditure1);
+
+
+
+}
+}
+
+

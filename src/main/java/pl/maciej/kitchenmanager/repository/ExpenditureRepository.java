@@ -14,4 +14,6 @@ public interface ExpenditureRepository extends JpaRepository<Expenditure,Long> {
     List<Expenditure> findAllByPickUpDate(LocalDate localDate);
 
     List<Expenditure> findAllByPickUpDateAndPurpose(LocalDate localDate,String purpose);
+
+
 }

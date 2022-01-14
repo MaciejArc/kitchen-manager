@@ -11,12 +11,9 @@
     <title>Add Income</title>
 </head>
 <body>
+<h3>${productName}</h3>
 <form:form modelAttribute="expenditure">
 
-    <p>Produkt:</p>
-
-
-    <form:select path="product" items="${products}" itemLabel="name"/>
 
     <p>Ilość:</p>
     <form:input path="quantity"/>
@@ -28,7 +25,7 @@
 
     </form:select>
 
-    <input type="submit" value="Wyślij">
+    <input type="submit" value="Edytuj">
 
 
 </form:form>
@@ -36,21 +33,21 @@
 <table>
     <tr>
         <td>Nazwa</td>
-        <td>Ilość${test}</td>
+        <td>Ilość</td>
         <td>Przeznaczenie</td>
 
     </tr>
-<c:forEach items="${expToday}" var="ex">
-    <tr>
+    <c:forEach items="${expToday}" var="ex">
+        <tr>
 
-        <td>${ex.product.name}</td>
-        <td>${ex.quantity}</td>
-        <td>${ex.purpose}</td>
-    </tr>
+            <td>${ex.product.name}</td>
+            <td>${ex.quantity}</td>
+            <td>${ex.purpose}</td>
+        </tr>
 
-</c:forEach>
+    </c:forEach>
 
 </table>
-
+<a href="http://localhost:8080/income/add?type=${type}">Dodaj kolejny produkt</a>
 </body>
 </html>
