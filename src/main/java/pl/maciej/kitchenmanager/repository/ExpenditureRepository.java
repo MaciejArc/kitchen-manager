@@ -15,5 +15,5 @@ public interface ExpenditureRepository extends JpaRepository<Expenditure,Long> {
 
     List<Expenditure> findAllByPickUpDateAndPurpose(LocalDate localDate,String purpose);
 
-
+    void deleteById(Long id);
 }

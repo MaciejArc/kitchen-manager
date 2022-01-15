@@ -98,23 +98,12 @@ public class ExpenditureController {
 //        return "redirect:/expenditure/add";
 //
 //    }
-
-    @GetMapping("/expenditure/edit")
-    public String expenditureEdit(Model model, @RequestParam(value = "id") String id){
-
-        model.addAttribute("expenditure",expenditureService.getExpenditure(id));
-        Product product = expenditureService.getExpenditure(id).getProduct();
-        model.addAttribute("type", product.getType());
-        model.addAttribute("productName", expenditureService.getExpenditure(id).getProduct().getName());
-        return "expenditure/editExpenditure";
-    }
-    @PostMapping("/expenditure/edit")
-    public String expenditureEditPost(Expenditure expenditure){
-
-        String purpose = expenditure.getPurpose();
-        double quantity = expenditure.getQuantity();
-        expenditureService.editExpenditure(expenditure,purpose,quantity);
-
+    @GetMapping("/expenditure/delete")
+    public String expenditureDelete(@RequestParam(value = "id") String id){
+        expenditureService.deleteExpenditure(id);
         return "redirect:/expenditure/addV2";
+
+
+
     }
 }

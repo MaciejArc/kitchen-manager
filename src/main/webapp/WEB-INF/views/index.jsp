@@ -66,7 +66,7 @@
     <div class="leftMenu">
         <a href="http://localhost:8080/product/card?id=" class="myButton">Kartoteka produktów</a>
         <a href="http://localhost:8080/product/add" class="myButton">Dodaj Produkt</a>
-        <a href="http://localhost:8080/income/add" class="myButton">Zakupy(przychód)</a>
+        <a href="http://localhost:8080/income/selectType" class="myButton">Zakupy(przychód)</a>
         <a href="http://localhost:8080/expenditure/add" class="myButton">Wydanie(rozchód)</a>
         <a href="http://localhost:8080/diary/show?number=1" class="myButton">Dzienniki</a>
         <a href="http://localhost:8080/diary/add" class="myButton">Dodaj dziennik</a>

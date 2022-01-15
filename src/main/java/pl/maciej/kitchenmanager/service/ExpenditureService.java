@@ -58,45 +58,28 @@ public class ExpenditureService {
         expenditureRepository.save(expenditure);
         productRepository.save(product);
     }
-public Expenditure getExpenditure(String id){
-    Expenditure expenditure = expenditureRepository.getById(Long.parseLong(id));
-    Expenditure expenditureNew = new Expenditure();
-        expenditureNew.setProduct(expenditure.getProduct());
-        expenditureNew.setValue(expenditure.getValue());
-        expenditureNew.setQuantity(expenditure.getQuantity());
-        expenditureNew.setPurpose(expenditure.getPurpose());
-        expenditureNew.setId(expenditure.getId());
+//public Expenditure getExpenditure(String id){
+//    Expenditure expenditure = expenditureRepository.getById(Long.parseLong(id));
+//    Expenditure expenditureNew = new Expenditure();
+//        expenditureNew.setProduct(expenditure.getProduct());
+//        expenditureNew.setValue(expenditure.getValue());
+//        expenditureNew.setQuantity(expenditure.getQuantity());
+//        expenditureNew.setPurpose(expenditure.getPurpose());
+//        expenditureNew.setId(expenditure.getId());
+//
+//    return expenditureNew;
+//
+//}
 
-    return expenditureNew;
+    public void deleteExpenditure(String id){
+        Expenditure expenditure = expenditureRepository.getById(Long.parseLong(id));
 
-}
-
-public void editQuantity(Expenditure expenditure,double quantity){
-    Expenditure expenditure1 = expenditureRepository.getById(expenditure.getId());
-    Product product = expenditure1.getProduct();
-    double quantity1 = expenditure1.getQuantity();
-    double v = quantity1 - quantity;
-        if(v<0){
-        product.setStock(product.getStock()-Math.abs(v));
-    }else {
-        product.setStock(product.getStock()+Math.abs(v));
-    }
+        Product product = expenditure.getProduct();
+        product.setStock(product.getStock()+expenditure.getQuantity());
         productRepository.save(product);
+        expenditureRepository.deleteById(Long.parseLong(id));
+    }
 
-}
-public void editExpenditure(Expenditure expenditure,String purpose,double quantity){
-        Expenditure expenditure1 = expenditureRepository.getById(expenditure.getId());
-
-
-
-
-
-
-       expenditureRepository.save(expenditure1);
-
-
-
-}
 }
 
 

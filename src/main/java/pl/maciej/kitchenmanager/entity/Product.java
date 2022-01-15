@@ -73,7 +73,7 @@ public class Product {
     }
 
     public double getValue() {
-        return getStock() * getPrice();
+        return Math.round(getStock()* getPrice() *100d)/100d ;
     }
 
     public void setValue(double value) {
