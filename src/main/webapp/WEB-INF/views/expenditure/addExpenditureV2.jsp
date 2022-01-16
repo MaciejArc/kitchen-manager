@@ -35,6 +35,7 @@
         <td>Nazwa${type}</td>
         <td>Ilość</td>
         <td>Przeznaczenie</td>
+        <td>Akcja</td>
 
     </tr>
     <c:forEach items="${expToday}" var="ex">
@@ -43,6 +44,7 @@
             <td>${ex.product.name}</td>
             <td>${ex.quantity}</td>
             <td>${ex.purpose}</td>
+            <td><a href="http://localhost:8080/expenditure/delete?id=${ex.id}">Usuń</a> </td>
         </tr>
 
     </c:forEach>

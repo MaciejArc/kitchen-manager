@@ -85,4 +85,9 @@ public class ProductController {
         return "product/test";
     }
 
+    @GetMapping("/product/edit")
+    public String editProduct(@RequestParam(value = "id")String id){
+return "product/add";
+    }
+
 }

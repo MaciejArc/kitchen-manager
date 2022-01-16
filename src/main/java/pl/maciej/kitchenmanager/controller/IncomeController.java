@@ -74,4 +74,10 @@ return "redirect:/expenditure/addV2";
 
     }
 
+    @GetMapping("/income/delete")
+    public String incomeDelete(@RequestParam(value = "id") String id){
+        incomeService.deleteIncome(id);
+        return "redirect:/income/selectType";
+    }
+
 }

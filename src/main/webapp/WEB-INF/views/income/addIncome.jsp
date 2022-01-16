@@ -34,6 +34,7 @@
     <tr>
         <td>Nazwa</td>
         <td>Ilość</td>
+        <td>Akcja</td>
 
 
     </tr>
@@ -42,6 +43,7 @@
 
             <td>${income.product.name}</td>
             <td>${income.quantity}</td>
+            <td><a href="http://localhost:8080/income/delete?id=${income.id}">Usuń</a></td>
 
         </tr>
 
