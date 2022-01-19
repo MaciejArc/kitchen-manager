@@ -61,17 +61,17 @@
 <body>
 <div class="container">
     <div class="header">
-<h2 style="text-align: center">Kitchen-manager</h2>
+        <h2 style="text-align: center">Wybierz kategorie</h2>
+
     </div>
     <div class="leftMenu">
-        <a href="http://localhost:8080/product/card?id=" class="myButton">Kartoteka produktów</a>
-        <a href="http://localhost:8080/product/add" class="myButton">Dodaj Produkt</a>
-        <a href="http://localhost:8080/income/selectType" class="myButton">Zakupy(przychód)</a>
-        <a href="http://localhost:8080/expenditure/add" class="myButton">Wydanie(rozchód)</a>
-        <a href="http://localhost:8080/diary/show?number=1" class="myButton">Dzienniki</a>
-        <a href="http://localhost:8080/diary/add" class="myButton">Dodaj dziennik</a>
-        <a href="http://localhost:8080/product/selectType?type=" class="myButton">Zmiana ceny produktu</a>
-
+        <a href="http://localhost:8080/product/selectType?type=Dairy" class="myButton">Nabiał</a>
+        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Mięso</a>
+        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Warzywa i owoce</a>
+        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Sypkie</a>
+        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Inne</a>
+        <br>
+        <a href="http://localhost:8080/diary/show?number=1" class="myButton" style="margin-top: 20px">Wstecz</a>
 
     </div>
 </div>
