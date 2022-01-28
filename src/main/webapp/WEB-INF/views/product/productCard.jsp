@@ -141,13 +141,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${expenditureList}" var="exp" varStatus="x">
+                    <c:forEach items="${expenditureList}" var="exp">
 
 
                         <tr>
                             <td>${exp.pickUpDate}</td>
                             <td>-</td>
-                            <td> R - ${x.count}</td>
+                            <td> R - ${exp.diaryNumber}</td>
                             <td>${exp.quantity}</td>
                             <td>${exp.value}</td>
                         </tr> </c:forEach>

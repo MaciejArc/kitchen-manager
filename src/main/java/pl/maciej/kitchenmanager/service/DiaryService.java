@@ -36,7 +36,7 @@ public class DiaryService {
         }
         return diary;
     }
-    public Diary findDiaryByNumber(int number){
+    public Diary findDiaryByNumber(String number){
         return diaryRepository.findDiaryByNumber(number);
     }
 

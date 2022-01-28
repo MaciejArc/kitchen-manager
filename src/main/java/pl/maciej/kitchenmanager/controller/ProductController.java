@@ -87,13 +87,13 @@ public class ProductController {
     }
 
     @GetMapping("/product/selectType")
-    public String selectType(@RequestParam(value = "type") String type,Model model) {
-if (type.isEmpty()){
-    return "product/selectType";
-}else {
+    public String selectType(@RequestParam(value = "type") String type, Model model) {
+        if (type.isEmpty()) {
+            return "product/selectType";
+        } else {
 
-    return "redirect:/product/edit?type="+type+"&id=&price=";
-}
+            return "redirect:/product/edit?type=" + type + "&id=&price=";
+        }
 
 
     }
@@ -102,18 +102,14 @@ if (type.isEmpty()){
     public String editProduct(@RequestParam(value = "type") String type,
                               @RequestParam(value = "id", required = false) String id,
                               @RequestParam(value = "price", required = false) String price,
-                                      Model model) {
-if (id.isEmpty()){
-    model.addAttribute("products",productService.findByType(type));
-    return "/product/editPrice";
-}else {
-     productService.editPrice(id, price);
-    return "redirect:/";
-}
-
-
-
-
+                              Model model) {
+        if (id.isEmpty()) {
+            model.addAttribute("products", productService.findByType(type));
+            return "/product/editPrice";
+        } else {
+            productService.editPrice(id, price);
+            return "redirect:/";
+        }
 
 
     }

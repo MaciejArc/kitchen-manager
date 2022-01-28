@@ -12,7 +12,7 @@ public class Expenditure {
     @OneToOne
     private Product product;
 
-    private int diaryNumber;
+    private String diaryNumber;
 
     private double quantity;
 
@@ -22,11 +22,11 @@ public class Expenditure {
 
     private String purpose;
 
-    public int getDiaryNumber() {
+    public String getDiaryNumber() {
         return diaryNumber;
     }
 
-    public void setDiaryNumber(int diaryNumber) {
+    public void setDiaryNumber(String diaryNumber) {
         this.diaryNumber = diaryNumber;
     }
 

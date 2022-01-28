@@ -65,11 +65,11 @@
 
     </div>
     <div class="leftMenu">
-        <a href="http://localhost:8080/product/selectType?type=Dairy" class="myButton">Nabiał</a>
-        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Mięso</a>
-        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Warzywa i owoce</a>
-        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Sypkie</a>
-        <a href="http://localhost:8080/product/edit?type=Dairy" class="myButton">Inne</a>
+        <a href="http://localhost:8080/product/selectType?type=Dairy&id=&price=" class="myButton">Nabiał</a>
+        <a href="http://localhost:8080/product/edit?type=Meat&id=&price=" class="myButton">Mięso</a>
+        <a href="http://localhost:8080/product/edit?type=VegetablesFruits&id=&price=" class="myButton">Warzywa i owoce</a>
+        <a href="http://localhost:8080/product/edit?type=Loose&id=&price=" class="myButton">Sypkie</a>
+        <a href="http://localhost:8080/product/edit?type=Another&id=&price=" class="myButton">Inne</a>
         <br>
         <a href="http://localhost:8080/diary/show?number=1" class="myButton" style="margin-top: 20px">Wstecz</a>
 

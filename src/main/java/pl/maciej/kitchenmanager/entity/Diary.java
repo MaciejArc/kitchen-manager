@@ -11,7 +11,7 @@ public class Diary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
+    private String number;
 
     private String purpose;
 
@@ -40,11 +40,11 @@ public class Diary {
         this.id = id;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
