@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.maciej.kitchenmanager.entity.Expenditure;
 import pl.maciej.kitchenmanager.entity.Income;
 import pl.maciej.kitchenmanager.entity.Product;
-import pl.maciej.kitchenmanager.repository.ExpenditureRepository;
-import pl.maciej.kitchenmanager.repository.IncomeRepository;
 import pl.maciej.kitchenmanager.repository.ProductRepository;
 import pl.maciej.kitchenmanager.service.ExpenditureService;
 import pl.maciej.kitchenmanager.service.IncomeService;
@@ -20,14 +18,11 @@ import java.util.List;
 @Controller
 public class ProductController {
 
-    private final ProductRepository productRepository;
-
     private final ProductService productService;
     private final IncomeService incomeService;
     private final ExpenditureService expenditureService;
 
-    public ProductController(ProductRepository productRepository, ProductService productService, IncomeService incomeService, ExpenditureService expenditureService) {
-        this.productRepository = productRepository;
+    public ProductController(ProductService productService, IncomeService incomeService, ExpenditureService expenditureService) {
         this.productService = productService;
         this.incomeService = incomeService;
         this.expenditureService = expenditureService;
@@ -42,7 +37,7 @@ public class ProductController {
 
     @PostMapping("/product/add")
     public String addProductPost(Product product) {
-        productRepository.save(product);
+        productService.addProduct(product);
         return "product/addProduct";
     }
 
@@ -50,7 +45,7 @@ public class ProductController {
     public String productCard(Model model, @RequestParam(value = "id") String request) {
 
         if (request.isEmpty()) {
-            model.addAttribute("products", productRepository.findAll());
+            model.addAttribute("products", productService.findAll());
             return "product/selectProduct";
         } else {
             Long id = Long.parseLong(request);
@@ -67,23 +62,6 @@ public class ProductController {
         }
 
 
-    }
-
-    @GetMapping("/test")
-    public String test(Model model) {
-
-
-        List<Expenditure> expenditureList = expenditureService.findAllByProductId(3L);
-        List<Income> incomeList = incomeService.findAllByProductId(3L);
-
-        model.addAttribute("incomeQuantityAndValue", incomeService.SumOfQuantityAndValue(incomeList));
-
-
-        model.addAttribute("expenditureQuantityAndValue", expenditureService.SumOfQuantityAndValue(expenditureList));
-
-        model.addAttribute("incomeList", incomeList);
-        model.addAttribute("expenditureList", expenditureList);
-        return "product/test";
     }
 
     @GetMapping("/product/selectType")

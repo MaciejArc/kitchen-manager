@@ -48,13 +48,12 @@ public class ExpenditureService {
         return expenditureRepository.findAllByPickUpDate(LocalDate.now());
     }
 
-    public void addExpenditure(Expenditure expenditure, Product product){
+    public void addExpenditure(Expenditure expenditure, Product product) {
 
         expenditure.setProduct(product);
         double price = product.getPrice();
-        expenditure.setValue(Math.round(price*expenditure.getQuantity()*100d)/100d);
-        product.setStock(product.getStock()-expenditure.getQuantity());
-
+        expenditure.setValue(Math.round(price * expenditure.getQuantity() * 100d) / 100d);
+        product.setStock(product.getStock() - expenditure.getQuantity());
         expenditureRepository.save(expenditure);
         productRepository.save(product);
     }
@@ -71,11 +70,11 @@ public class ExpenditureService {
 //
 //}
 
-    public void deleteExpenditure(String id){
+    public void deleteExpenditure(String id) {
         Expenditure expenditure = expenditureRepository.getById(Long.parseLong(id));
 
         Product product = expenditure.getProduct();
-        product.setStock(product.getStock()+expenditure.getQuantity());
+        product.setStock(product.getStock() + expenditure.getQuantity());
         productRepository.save(product);
         expenditureRepository.deleteById(Long.parseLong(id));
     }

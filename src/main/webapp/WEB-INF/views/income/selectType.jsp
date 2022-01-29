@@ -66,12 +66,12 @@
     </div>
     <div class="leftMenu">
         <a href="http://localhost:8080/income/add?type=Dairy" class="myButton">Nabiał</a>
-        <a href="http://localhost:8080/product/add" class="myButton">Mięso</a>
-        <a href="http://localhost:8080/income/add" class="myButton">Warzywa i owoce</a>
+        <a href="http://localhost:8080/income/add?type=Meat" class="myButton">Mięso</a>
+        <a href="http://localhost:8080/income/add?type=VegetablesFruits" class="myButton">Warzywa i owoce</a>
         <a href="http://localhost:8080/income/add?type=Loose" class="myButton">Sypkie</a>
-        <a href="http://localhost:8080/diary/show?number=1" class="myButton">Inne</a>
+        <a href="http://localhost:8080/income/add?type=Another" class="myButton">Inne</a>
 <br>
-        <a href="http://localhost:8080/diary/show?number=1" class="myButton" style="margin-top: 20px">Wstecz</a>
+        <a href="http://localhost:8080/" class="myButton" style="margin-top: 20px">Wstecz</a>
 
     </div>
 </div>

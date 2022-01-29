@@ -12,7 +12,7 @@ public class Expenditure {
     @OneToOne
     private Product product;
 
-    private String diaryNumber;
+    private String diaryNumber = "0";
 
     private double quantity;
 

@@ -29,6 +29,19 @@ public class IncomeService {
         return incomeRepository.findAllByProduct_Id(id);
     }
 
+    public void addIncome(Income income){
+        Product product = income.getProduct();
+        double price = product.getPrice();
+
+        income.setValue(Math.round(price*income.getQuantity() *100.0)/100.0);
+        product.setStock(product.getStock()+income.getQuantity());
+        incomeRepository.save(income);
+        productRepository.save(product);
+
+
+    }
+
+
     public List<Double> SumOfQuantityAndValue(List<Income> list) {
         List<Double> sumOfQuantityAndValue = new ArrayList<>();
         double incomeQuantity = 0d;

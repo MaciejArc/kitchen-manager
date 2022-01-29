@@ -95,43 +95,7 @@
     <title>Add Income</title>
 </head>
 <body>
-<%--<h2>${diary.date}</h2>--%>
-<%--<table border="solid">--%>
-<%--    <tr>--%>
-<%--        <td>x</td><td>Śniadanie</td><td>Obiad</td><td>Podwieczorek</td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>Jadłospis:</td><td>${diary.breakfast}</td><td>${diary.dinner}</td><td>${diary.tea}</td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>Ilość:</td> <td>${diary.breakfastQuantity}</td><td>${diary.dinnerQuantity}</td><td>${diary.teaQuantity}</td>--%>
-<%--    </tr>--%>
 
-
-<%--</table>--%>
-
-<%--<table border="solid">--%>
-<%--    <tr>--%>
-<%--        <td>Nazwa</td>--%>
-<%--        <td>J.m.</td>--%>
-<%--        <td>Cena jedn.</td>--%>
-<%--        <td>Ilość</td>--%>
-<%--        <td>wartość</td>--%>
-
-<%--    </tr>--%>
-<%--    <c:forEach items="${diary.expenditureList}" var="ex">--%>
-<%--        <tr>--%>
-
-<%--            <td>${ex.product.name}</td>--%>
-<%--            <td>${ex.product.unit}</td>--%>
-<%--            <td>${ex.product.price}</td>--%>
-<%--            <td>${ex.quantity}</td>--%>
-<%--            <td>${ex.value}</td>--%>
-<%--        </tr>--%>
-
-<%--    </c:forEach>--%>
-
-<%--</table>--%>
 <div class="divTable">
     <div class="divTableBody">
         <div class="divTableRow">

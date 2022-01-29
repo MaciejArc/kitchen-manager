@@ -55,4 +55,9 @@ public class DiaryService {
 
         return value;
     }
+
+    public List<String> selectDiary(){
+      return diaryRepository.selectDiary();
+
+    }
 }

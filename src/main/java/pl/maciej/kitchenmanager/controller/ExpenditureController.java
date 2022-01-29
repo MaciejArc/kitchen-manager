@@ -7,97 +7,60 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.maciej.kitchenmanager.entity.Expenditure;
 import pl.maciej.kitchenmanager.entity.Product;
-import pl.maciej.kitchenmanager.repository.ExpenditureRepository;
-import pl.maciej.kitchenmanager.repository.ProductRepository;
 import pl.maciej.kitchenmanager.service.ExpenditureService;
 import pl.maciej.kitchenmanager.service.ProductService;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class ExpenditureController {
 
-    private final ExpenditureRepository expenditureRepository;
-    private final ProductRepository productRepository;
     private final ExpenditureService expenditureService;
     private final ProductService productService;
 
-    public ExpenditureController(ExpenditureRepository expenditureRepository, ProductRepository productRepository, ExpenditureService expenditureService, ProductService productService) {
-        this.expenditureRepository = expenditureRepository;
-        this.productRepository = productRepository;
+    public ExpenditureController(ExpenditureService expenditureService, ProductService productService) {
         this.expenditureService = expenditureService;
         this.productService = productService;
     }
 
-    @GetMapping("/expenditure/addV2")
+    @GetMapping("/expenditure/add")
     public String expenditureAddV2(Model model, HttpServletRequest request) {
 
         Cookie[] cookies = request.getCookies();
-        Long cookieId = 0L;
+        Long productId = 0L;
         for (Cookie cookie :
                 cookies) {
             if (cookie.getName().equals("product")) {
-                cookieId = Long.parseLong(cookie.getValue());
+                productId = Long.parseLong(cookie.getValue());
             }
         }
         model.addAttribute("expenditure", new Expenditure());
-        model.addAttribute("productName", productService.findById(cookieId).getName());
+        model.addAttribute("productName", productService.findById(productId).getName());
         model.addAttribute("expToday", expenditureService.ExpenditureToday());
 
-        Product product = productService.findById(cookieId);
+        Product product = productService.findById(productId);
         model.addAttribute("type", product.getType());
-        return "expenditure/addExpenditureV2";
+        return "expenditure/addExpenditure";
     }
 
-    @PostMapping("/expenditure/addV2")
+    @PostMapping("/expenditure/add")
     public String expenditureAddV2(Expenditure expenditure, Model model, HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
-        Long cookieId = 0L;
+        Long productId = 0L;
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("product")) {
-                cookieId = Long.parseLong(cookie.getValue());
+                productId = Long.parseLong(cookie.getValue());
             }
         }
 
-        Product product = productService.findById(cookieId);
+        Product product = productService.findById(productId);
         expenditureService.addExpenditure(expenditure, product);
 
         model.addAttribute("expToday", expenditureService.ExpenditureToday());
 
-        return "redirect:/expenditure/addV2";
+        return "redirect:/expenditure/add";
     }
 
-//    @GetMapping("/expenditure/add")
-//    public String expenditureAdd(Model model, HttpServletRequest request) {
-//        model.addAttribute("expenditure", new Expenditure());
-//        model.addAttribute("products", productRepository.findAll());
-//        model.addAttribute("expToday", expenditureService.ExpenditureToday());
-//
-//
-//        return "expenditure/addExpenditure";
-//
-//    }
-//
-//    @PostMapping("/expenditure/add")
-//    public String expenditureAddPost(Expenditure expenditure, Model model) {
-//        //   model.addAttribute("products", productRepository.findAll());
-//        Product product = expenditure.getProduct();
-//        double price = product.getPrice();
-//        expenditure.setValue(Math.round(price * expenditure.getQuantity() * 100.0) / 100.0);
-//        product.setStock(product.getStock() - expenditure.getQuantity());
-//        expenditureRepository.save(expenditure);
-//        productRepository.save(product);
-////        List<Expenditure> expenditureList = new ArrayList<>();
-//        model.addAttribute("expToday", expenditureService.ExpenditureToday());
-//
-//
-//        return "redirect:/expenditure/add";
-//
-//    }
     @GetMapping("/expenditure/delete")
     public String expenditureDelete(@RequestParam(value = "id") String id){
         expenditureService.deleteExpenditure(id);

@@ -35,9 +35,19 @@ public class DiaryController {
 
     @GetMapping("/diary/show")
     public String diaryShow(Model model, @RequestParam(value = "number") String number){
-       // int diaryNumber = Integer.parseInt(number);
+
         model.addAttribute("sumValue",diaryService.sumValue(diaryService.findDiaryByNumber(number)));
         model.addAttribute("diary", diaryService.findDiaryByNumber(number));
         return "diary/showDiary";
+    }
+    @GetMapping("/diary/selectDiary")
+    public String sectDiary(Model model,@RequestParam(value = "number")String number){
+if(number.isEmpty()){
+    model.addAttribute("diaryNumber",diaryService.selectDiary());
+    return "diary/selectDiary";
+}else{
+    return "redirect:/diary/show?number="+number;
+}
+
     }
 }
