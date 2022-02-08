@@ -18,12 +18,9 @@
         <c:forEach items="${diaryNumber}" var="number">
             <option value="${number}">${number}</option>
 
-        </c:forEach>  <input type="submit" value="Wyślij">
+        </c:forEach> <input type="submit" value="Wyślij">
     </select>
 </form:form>
-
-
-
 
 
 </body>

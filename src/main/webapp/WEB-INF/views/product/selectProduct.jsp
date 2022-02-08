@@ -14,16 +14,13 @@
 
 
 <form:form method="get">
-<select name="id" style="font-size: large">
-    <c:forEach items="${products}" var="product">
-        <option value="${product.id}">${product.name}</option>
+    <select name="id" style="font-size: large">
+        <c:forEach items="${products}" var="product">
+            <option value="${product.id}">${product.name}</option>
 
-    </c:forEach>  <input type="submit" value="Wyślij">
-</select>
+        </c:forEach> <input type="submit" value="Wyślij">
+    </select>
 </form:form>
-
-
-
 
 
 </body>

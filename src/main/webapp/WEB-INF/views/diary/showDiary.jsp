@@ -19,45 +19,12 @@
             width: 100%;
         }
 
-        .divTableHeading {
-            background-color: #EEE;
-            display: table-header-group;
-        }
-
         .divTableCell, .divTableHead {
             border: 1px solid #999999;
             display: block;
             padding: 10px 0px;
             text-align: center;
             min-width: 33%;
-        }
-
-        .divTableCell2 {
-            border: 1px solid #999999;
-            display: block;
-            padding: 3px 10px;
-            text-align: center;
-            min-width: 50%;
-        }
-
-        .divTableCell3 {
-            border: 1px solid #999999;
-            display: flex;
-            padding: 3px 10px;
-            text-align: center;
-            min-width: 33%;
-        }
-
-        .divTableHeading {
-            background-color: #EEE;
-            display: table-header-group;
-            font-weight: bold;
-        }
-
-        .divTableFoot {
-            background-color: #EEE;
-            display: table-footer-group;
-            font-weight: bold;
         }
 
         .divTableBody {
@@ -98,11 +65,13 @@
 
 <div class="divTable">
     <div class="divTableBody">
+
         <div class="divTableRow">
             <div class="divTableCell"><h3>R-${diary.number}</h3><br>(Numer raportu)</div>
             <div class="divTableCell" style="font-size: larger"><h2>${diary.date}</h2></div>
             <div class="divTableCell">&nbsp;<h3>${diary.purpose}</h3>(P - Przedszkole<br>S - Stołówka)</div>
         </div>
+
         <div class="divTableRow">
             <div class="divTableCell"><b>Śniadanie</b><br>${diary.breakfast}<br>Ilość wydana: ${diary.breakfastQuantity}
             </div>
@@ -112,6 +81,7 @@
 
             </div>
         </div>
+
         <div class="divTableRow">
             <table class="GeneratedTable">
                 <thead>
@@ -136,16 +106,13 @@
                     </tr>
 
                 </c:forEach>
+
                 <tr>
-
                     <td colspan="3"></td>
-
-
                     <td><b>Suma:</b></td>
                     <td><b>${sumValue}</b></td>
-
-
                 </tr>
+
                 </tbody>
             </table>
         </div>

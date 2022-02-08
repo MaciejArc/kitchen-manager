@@ -22,6 +22,7 @@ public class Expenditure {
 
     private String purpose;
 
+
     public String getDiaryNumber() {
         return diaryNumber;
     }
@@ -79,9 +80,9 @@ public class Expenditure {
     }
 
 
-
     public Expenditure() {
     }
+
     public Expenditure(Product product) {
         this.product = product;
     }

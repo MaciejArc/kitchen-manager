@@ -19,12 +19,14 @@
             display: block;
 
         }
+
         .header {
             padding-top: 2px;
             width: 99%;
             height: 10%;
             margin: 1%;
         }
+
         .leftMenu {
 
             width: 10%;
@@ -34,25 +36,27 @@
         .myButton {
             box-shadow: 0px 0px 0px 2px #9fb4f2;
             background: #7892c2 linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-            border-radius:10px;
-            border:1px solid #4e6096;
-            display:inline-block;
-            cursor:pointer;
-            color:#ffffff;
-            font-family:Arial;
-            font-size:19px;
-            padding:12px 37px;
-            text-decoration:none;
-            text-shadow:0px 1px 0px #283966;
+            border-radius: 10px;
+            border: 1px solid #4e6096;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 19px;
+            padding: 12px 37px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #283966;
             margin: 1px;
             width: 100%;
         }
+
         .myButton:hover {
             background: #476e9e linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
         }
+
         .myButton:active {
-            position:relative;
-            top:1px;
+            position: relative;
+            top: 1px;
         }
 
     </style>
@@ -67,7 +71,8 @@
     <div class="leftMenu">
         <a href="http://localhost:8080/product/selectType?type=Dairy&id=&price=" class="myButton">Nabiał</a>
         <a href="http://localhost:8080/product/edit?type=Meat&id=&price=" class="myButton">Mięso</a>
-        <a href="http://localhost:8080/product/edit?type=VegetablesFruits&id=&price=" class="myButton">Warzywa i owoce</a>
+        <a href="http://localhost:8080/product/edit?type=VegetablesFruits&id=&price=" class="myButton">Warzywa i
+            owoce</a>
         <a href="http://localhost:8080/product/edit?type=Loose&id=&price=" class="myButton">Sypkie</a>
         <a href="http://localhost:8080/product/edit?type=Another&id=&price=" class="myButton">Inne</a>
         <br>

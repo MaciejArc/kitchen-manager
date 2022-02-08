@@ -14,9 +14,7 @@
 <form:form modelAttribute="diary">
 
     <p>Numer raportu:</p>
-<form:input path="number"/>
-
-<%--    <form:select path="product" items="${products}" itemLabel="name"/>--%>
+    <form:input path="number"/>
 
     <p>Przeznaczenie:</p>
     <form:select path="purpose">
@@ -43,25 +41,6 @@
 
 
 </form:form>
-
-<%--<table>--%>
-<%--    <tr>--%>
-<%--        <td>Nazwa</td>--%>
-<%--        <td>Ilość</td>--%>
-<%--        <td>Przeznaczenie</td>--%>
-
-<%--    </tr>--%>
-<%--    <c:forEach items="${expToday}" var="ex">--%>
-<%--        <tr>--%>
-
-<%--            <td>${ex.product.name}</td>--%>
-<%--            <td>${ex.quantity}</td>--%>
-<%--            <td>${ex.purpose}</td>--%>
-<%--        </tr>--%>
-
-<%--    </c:forEach>--%>
-
-<%--</table>--%>
 
 </body>
 </html>

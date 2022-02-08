@@ -12,15 +12,10 @@
 </head>
 <body>
 <form:form modelAttribute="income">
-<a href="http://localhost:8080/income/selectType">Wstecz</a>
+    <a href="http://localhost:8080/income/selectType">Wstecz</a>
     <p>Produkt:</p>
-<%--    <c:forEach items="${products}" var="product">--%>
 
-<%--        <form:select path="product" v--%>
-
-<%--    </c:forEach>--%>
-
-   <form:select path="product" items="${products}"  itemLabel="name" cssStyle="font-size: large"/>
+    <form:select path="product" items="${products}" itemLabel="name" cssStyle="font-size: large"/>
 
 
     <p>Ilość:</p>

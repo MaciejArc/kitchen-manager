@@ -21,11 +21,6 @@
             width: 95%;
         }
 
-        .divTableHeading {
-            background-color: #EEE;
-            display: table-header-group;
-        }
-
         .divTableCell, .divTableHead {
             border: 1px solid #999999;
             display: block;
@@ -33,6 +28,7 @@
             text-align: center;
             min-width: 33%;
         }
+
         .divTableCell2 {
             border: 1px solid #999999;
             display: block;
@@ -40,6 +36,7 @@
             text-align: center;
             min-width: 50%;
         }
+
         .divTableCell3 {
             border: 1px solid #999999;
             display: flex;
@@ -48,23 +45,12 @@
             min-width: 33%;
         }
 
-        .divTableHeading {
-            background-color: #EEE;
-            display: table-header-group;
-            font-weight: bold;
-        }
-
-        .divTableFoot {
-            background-color: #EEE;
-            display: table-footer-group;
-            font-weight: bold;
-        }
-
         .divTableBody {
             display: block;
             width: 100%;
         }
-        td{
+
+        td {
             border: solid;
         }
 
@@ -113,7 +99,8 @@
                             <td></td>
                             <td>${incom.quantity}</td>
                             <td>${incom.value}</td>
-                        </tr> </c:forEach>
+                        </tr>
+                    </c:forEach>
                     <tr>
                         <td></td>
                         <td></td>
@@ -150,7 +137,8 @@
                             <td> R - ${exp.diaryNumber}</td>
                             <td>${exp.quantity}</td>
                             <td>${exp.value}</td>
-                        </tr> </c:forEach>
+                        </tr>
+                    </c:forEach>
                     <tr>
                         <td></td>
                         <td></td>
